@@ -91,26 +91,26 @@ Use this checklist to track your progress through the 4-week project.
 
 ### Reading Lists API Lambda Functions
 
-- [ ] Create Lambda: `library-get-reading-lists`
-- [ ] Deploy code with DynamoDB Query by userId
-- [ ] Create API Gateway resource: `/reading-lists`
-- [ ] Create GET method
-- [ ] Enable CORS
-- [ ] Deploy API
+- [+] Create Lambda: `library-get-reading-lists`
+- [+] Deploy code with DynamoDB Query by userId
+- [+] Create API Gateway resource: `/reading-lists`
+- [+] Create GET method
+- [+] Enable CORS
+- [+] Deploy API
 
-- [ ] Create Lambda: `library-create-reading-list`
-- [ ] Deploy code with DynamoDB PutItem
-- [ ] Create POST method on `/reading-lists`
-- [ ] Enable CORS
-- [ ] Deploy API
+- [+] Create Lambda: `library-create-reading-list`
+- [+] Deploy code with DynamoDB PutItem
+- [+] Create POST method on `/reading-lists`
+- [+] Enable CORS
+- [+] Deploy API
 
-- [ ] Create Lambda: `library-update-reading-list`
-- [ ] Deploy code with DynamoDB UpdateItem
-- [ ] Create PUT method on `/reading-lists/{id}`
-- [ ] Enable CORS
-- [ ] Deploy API
+- [+] Create Lambda: `library-update-reading-list`
+- [+] Deploy code with DynamoDB UpdateItem
+- [+] Create PUT method on `/reading-lists/{id}`
+- [+] Enable CORS
+- [+] Deploy API
 
-- [ ] Create Lambda: `library-delete-reading-list`
+- [+] Create Lambda: `library-delete-reading-list`
 - [ ] Deploy code with DynamoDB DeleteItem
 - [ ] Create DELETE method on `/reading-lists/{id}`
 - [ ] Enable CORS
@@ -118,14 +118,14 @@ Use this checklist to track your progress through the 4-week project.
 
 ### Connect Frontend to API
 
-- [ ] Note your API Gateway URL
-- [ ] Create `.env` file in project root
-- [ ] Add `VITE_API_BASE_URL=https://YOUR-API-ID.execute-api.us-east-1.amazonaws.com/dev`
-- [ ] Uncomment `API_BASE_URL` in `src/services/api.ts`
-- [ ] Update `getBooks()` function to call real API
-- [ ] Update `getBook()` function to call real API
-- [ ] Test frontend - books should load from DynamoDB
-- [ ] Verify in browser console - no mock data messages
+- [+] Note your API Gateway URL
+- [+] Create `.env` file in project root
+- [+] Add `VITE_API_BASE_URL=https://YOUR-API-ID.execute-api.us-east-1.amazonaws.com/dev`
+- [+] Uncomment `API_BASE_URL` in `src/services/api.ts`
+- [+] Update `getBooks()` function to call real API
+- [+] Update `getBook()` function to call real API
+- [+] Test frontend - books should load from DynamoDB
+- [] Verify in browser console - no mock data messages
 
 **✅ Week 2 Complete!** You have a working REST API connected to your frontend.
 

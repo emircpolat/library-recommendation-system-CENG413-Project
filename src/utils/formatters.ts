@@ -21,7 +21,8 @@ export function formatDate(isoString: string): string {
  * @param rating - Numeric rating value
  * @returns Formatted rating string (e.g., "4.5")
  */
-export function formatRating(rating: number): string {
+export function formatRating(rating?: number) {
+  if (rating === undefined || rating === null) return 'N/A';
   return rating.toFixed(1);
 }
 

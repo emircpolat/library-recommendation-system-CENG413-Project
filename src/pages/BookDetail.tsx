@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/common/Button';
 import { LoadingSpinner } from '@/components/common/LoadingSpinner';
 import { getBook } from '@/services/api';
 import { Book } from '@/types';
-import { formatRating } from '@/utils/formatters';
 import { handleApiError } from '@/utils/errorHandling';
+import { formatRating } from '@/utils/formatters';
+import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 
 /**
  * BookDetail page component
@@ -84,12 +84,9 @@ export function BookDetail() {
             <div className="md:col-span-1">
               <div className="relative group">
                 <img
-                  src={book.coverImage}
+                  src={book.coverImage || '/book-covers/default.jpg'}
                   alt={book.title}
-                  className="w-full rounded-2xl shadow-2xl group-hover:shadow-glow transition-all duration-300"
-                  onError={(e) => {
-                    e.currentTarget.src = 'https://via.placeholder.com/300x400?text=No+Cover';
-                  }}
+                  className="w-full rounded-2xl shadow-2xl"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-violet-900/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </div>
@@ -111,7 +108,7 @@ export function BookDetail() {
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
                   <span className="text-lg font-bold text-amber-700">
-                    {formatRating(book.rating)}
+                    {book.rating ? formatRating(book.rating) : 'N/A'}
                   </span>
                 </div>
 
@@ -131,7 +128,7 @@ export function BookDetail() {
                       d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
                     />
                   </svg>
-                  <span className="font-semibold">{book.publishedYear}</span>
+                  <span>{book.publishedYear ?? 'Unknown'}</span>
                 </div>
               </div>
 

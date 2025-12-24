@@ -1,5 +1,5 @@
 import { Book, ReadingList, Recommendation, Review } from '@/types';
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000/api';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 console.log('API_BASE_URL:', API_BASE_URL);
 
@@ -91,11 +91,9 @@ console.log('API_BASE_URL:', API_BASE_URL);
  */
 export async function getBooks(): Promise<Book[]> {
   const response = await fetch(`${API_BASE_URL}/books`);
-
   if (!response.ok) {
     throw new Error('Failed to fetch books');
   }
-
   return response.json();
 }
 
@@ -118,15 +116,10 @@ export async function getBooks(): Promise<Book[]> {
  */
 export async function getBook(id: string): Promise<Book | null> {
   const response = await fetch(`${API_BASE_URL}/books/${id}`);
-
-  if (response.status === 404) {
-    return null;
-  }
-
+  if (response.status === 404) return null;
   if (!response.ok) {
     throw new Error('Failed to fetch book');
   }
-
   return response.json();
 }
 
