@@ -135,40 +135,40 @@ Use this checklist to track your progress through the 4-week project.
 
 ### Cognito Setup
 
-- [ ] Go to AWS Cognito Console
-- [ ] Create User Pool: `library-users`
-- [ ] Configure sign-in: Email
-- [ ] Configure password policy: Cognito defaults
-- [ ] Disable MFA (for simplicity)
-- [ ] Enable self-registration
-- [ ] Required attributes: name, email
-- [ ] Create app client: `library-web-client`
-- [ ] Don't generate client secret
-- [ ] Note User Pool ID (e.g., `us-east-1_abc123`)
-- [ ] Note App Client ID (e.g., `1a2b3c4d5e6f7g8h9i0j`)
+- [+] Go to AWS Cognito Console
+- [+] Create User Pool: `library-users`
+- [+] Configure sign-in: Email
+- [+] Configure password policy: Cognito defaults
+- [+] Disable MFA (for simplicity)
+- [+] Enable self-registration
+- [+] Required attributes: name, email
+- [+] Create app client: `library-web-client`
+- [+] Don't generate client secret
+- [+] Note User Pool ID (e.g., `us-east-1_abc123`)
+- [+] Note App Client ID (e.g., `1a2b3c4d5e6f7g8h9i0j`)
 
 ### Frontend Integration
 
-- [ ] Install AWS Amplify: `npm install aws-amplify`
-- [ ] Update `.env` file:
+- [+] Install AWS Amplify: `npm install aws-amplify`
+- [+] Update `.env` file:
   ```
   VITE_COGNITO_USER_POOL_ID=us-east-1_abc123
   VITE_COGNITO_CLIENT_ID=1a2b3c4d5e6f7g8h9i0j
   VITE_AWS_REGION=us-east-1
   ```
-- [ ] Add Amplify configuration to `src/main.tsx` (see IMPLEMENTATION_GUIDE.md)
-- [ ] Import Cognito functions in `src/contexts/AuthContext.tsx`
-- [ ] Replace `login()` function with Cognito signIn
-- [ ] Replace `logout()` function with Cognito signOut
-- [ ] Replace `signup()` function with Cognito signUp
-- [ ] Update `useEffect` to check Cognito session
-- [ ] Remove localStorage mock code
-- [ ] Test signup flow - create new user
-- [ ] Check email for verification code
-- [ ] Verify user in Cognito Console
-- [ ] Test login flow
-- [ ] Test logout flow
-- [ ] Verify user state persists on page refresh
+- [+] Add Amplify configuration to `src/main.tsx` (see IMPLEMENTATION_GUIDE.md)
+- [+] Import Cognito functions in `src/contexts/AuthContext.tsx`
+- [+] Replace `login()` function with Cognito signIn
+- [+] Replace `logout()` function with Cognito signOut
+- [+] Replace `signup()` function with Cognito signUp
+- [+] Update `useEffect` to check Cognito session
+- [+] Remove localStorage mock code
+- [+] Test signup flow - create new user
+- [+] Check email for verification code
+- [+] Verify user in Cognito Console
+- [+] Test login flow
+- [+] Test logout flow
+- [+] Verify user state persists on page refresh
 
 ### API Authorization
 
