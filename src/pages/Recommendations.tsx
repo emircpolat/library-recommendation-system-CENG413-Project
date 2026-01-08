@@ -1,9 +1,7 @@
 import { Button } from '@/components/common/Button';
 import { LoadingSpinner } from '@/components/common/LoadingSpinner';
 import { useState } from 'react';
-//import { BookGrid } from '@/components/books/BookGrid';
-import { getRecommendations, /*, getBook */ } from '@/services/api';
-import { Book, Recommendation } from '@/types';
+import { getRecommendations } from '@/services/api';
 import { handleApiError } from '@/utils/errorHandling';
 
 /**
@@ -11,9 +9,7 @@ import { handleApiError } from '@/utils/errorHandling';
  */
 export function Recommendations() {
   const [query, setQuery] = useState('');
-  const [_recommendations, setRecommendations] = useState<Recommendation[]>([]);
-  const [_recommendedBooks, setRecommendedBooks] = useState<Book[]>([]);
-  const [recommendationText, setRecommendationText] = useState<string>('');
+  const [recommendationText, setRecommendationText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   const exampleQueries = [
@@ -30,14 +26,9 @@ export function Recommendations() {
     }
 
     setIsLoading(true);
-    setRecommendations([]);
-    setRecommendedBooks([]);
     setRecommendationText('');
 
     try {
-      // TODO: Replace with actual Bedrock API call
-      // This will call Lambda function that uses Amazon Bedrock
-      // to generate personalized recommendations based on the query
       const result = await getRecommendations(query);
       setRecommendationText(result.recommendations);
     } catch (error) {
@@ -83,12 +74,14 @@ export function Recommendations() {
           <textarea
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Describe your ideal book... (e.g., 'I want a thrilling mystery set in Victorian London')"
+            placeholder="Describe your ideal book..."
             className="input-modern min-h-[140px] resize-none"
           />
 
           <div className="mt-6">
-            <p className="text-sm text-slate-700 font-semibold mb-3">Try these examples:</p>
+            <p className="text-sm text-slate-700 font-semibold mb-3">
+              Try these examples:
+            </p>
             <div className="flex flex-wrap gap-2">
               {exampleQueries.map((example, index) => (
                 <button
