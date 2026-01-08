@@ -13,7 +13,7 @@ This project provides a **complete frontend starter** with mock data and compreh
 - Serverless architecture patterns
 - Cloud deployment (S3 + CloudFront)
 
-**Current Status**: ✅ Frontend complete with mock data | ⏳ Backend to be implemented by students
+**Current Status**: ✅ Frontend complete with mock data | ✅ Full-stack application deployed (Frontend + Backend + AI)
 
 ## 🚀 Features
 
@@ -480,9 +480,7 @@ The Recommendations page is ready for Amazon Bedrock integration.
 
 ### Current Status:
 
-- ✅ Frontend UI complete
-- ✅ Mock recommendations working
-- ⏳ Bedrock integration (students implement)
+Current Status: ✅ Full-stack application deployed (Frontend + Backend + AI)
 
 ### Implementation Steps:
 
@@ -565,6 +563,31 @@ Current coverage: ~75% (meets Milestone 3 requirement)
 
 ## 🚀 Deployment (Week 4)
 
+## 🌐 REST API Endpoints
+
+The backend exposes a RESTful API implemented with AWS Lambda and API Gateway.
+
+### Books
+- GET /books
+- GET /books/{id}
+- POST /books
+- PUT /books/{id}
+- DELETE /books/{id}
+
+### Reading Lists
+- GET /reading-lists
+- POST /reading-lists
+- PUT /reading-lists/{id}
+- DELETE /reading-lists/{id}
+
+### AI
+- POST /recommendations
+
+### Authentication
+- Amazon Cognito User Pool (JWT-based authentication)
+
+Total: **10+ REST API endpoints**
+
 ### Build for Production
 
 ```bash
@@ -586,15 +609,27 @@ Students will deploy the frontend following **IMPLEMENTATION_GUIDE.md - Week 4, 
 ### Deployment Commands:
 
 ```bash
-# Build production version
 npm run build
+aws s3 sync dist/ s3://library-app-frontend-devs/
 
-# Upload to S3 (after creating bucket)
-aws s3 sync dist/ s3://your-bucket-name/ --delete
+Upload to S3 (after creating bucket)
+aws s3 sync dist/ s3://library-app-frontend-devs/
 
-# Your site will be available at:
-# http://your-bucket-name.s3-website-us-east-1.amazonaws.com
-# or https://dn41x5oawnzmp.cloudfront.net
+ Our site will be available at:
+ http://your-bucket-name.s3-website-us-east-1.amazonaws.com
+ or https://dn41x5oawnzmp.cloudfront.net
+
+
+## 🤝 Team Contributions
+
+| Team Member | Contributions |
+|------------|---------------|
+| **Emir Cihan Polat** | Project initialization and core frontend-backend integration, API Gateway connection, removal of mock APIs, frontend testing and debugging, CloudFront deployment, environment configuration,|
+| **Furkan Gümüşgöz** | Backend development with AWS Lambda and API Gateway, Amazon Bedrock-powered AI recommendation API, DynamoDB integration, test coverage improvements (>90%), API authorization with Cognito |
+| **R. Tuğrul Dilbaz** | Authentication flow implementation (Login, Signup, AuthContext), frontend AWS integration support, checklist updates, UI fixes and refinements, API authorization with Cognito |
+| **Mustafa Buğra İlek** | UI improvements and frontend component updates (Home, Button, Card), test updates and fixes, README documentation updates, repository maintenance |
+
+
 ```
 
 ### Cost Estimate:
@@ -690,5 +725,4 @@ This project is part of an academic course at Istanbul Okan University.
 **Built with ❤️ for CENG413 - Software Quality Standards**
 
 **Project Type**: 4-week intensive, beginner-friendly, AWS serverless  
-**Status**: Frontend complete ✅ | Backend implementation guides ready ✅  
-**Next Step**: [QUICK_START.md](./QUICK_START.md) 🚀
+Status: Status: Full-stack application deployed ✅
